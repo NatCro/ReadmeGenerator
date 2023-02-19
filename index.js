@@ -4,7 +4,19 @@ const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 // array of questions for user
-const questions = [
+const questions = [{
+    type: 'input',
+      name: 'title',
+      message: 'Provide a title for your project',
+
+},
+{
+    type: 'input',
+      name: 'description',
+      message: 'Provide a description of your project',
+
+},
+
 
 ];
 
@@ -15,7 +27,10 @@ const questions = [
 
 
 // function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(fileName, answers) {
+    fs.writeFile(fileName, answers, (err) =>
+      err ? console.log(err) : console.log('Success!')
+    );
 }
 
 // function to initialize program
@@ -23,8 +38,8 @@ function init() {
     inquirer
     .prompt(questions)
     .then((answers) => {
-      const content = generatedMarkdown(answers);
-      writeToFile('README.md', content);
+      const content = generateMarkdown(answers);
+      writeToFile('./generatedReadme/README.md', content);
     })
     }
 
