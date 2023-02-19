@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "NatCro",
+  "license": "MIT",
   "dependencies": {
-    "inquirer": "^6.3.1"
+    "inquirer": "^6.5.0"
   }
 }
